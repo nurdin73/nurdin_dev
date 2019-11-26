@@ -2,12 +2,12 @@
 // Hitung sesuai voucher yang digunakan
 function dumbWaysAsik()
 {
-	$potongan = [20000, (40 / 100)];
+	$potongan = [20000, (40 / 100), 'Untuk menggunakan voucher dumbWaysAsik', 'dumbWaysAsik'];
 	return $potongan;
 }
 function dumbWaysMantap()
 {
-	$potongan = [50000,(30 / 100)];
+	$potongan = [50000,(30 / 100),'Untuk menggunakan voucher dumbWaysMantap', 'dumbWaysMantap'];
 	return $potongan;
 }
 function hitungvoucher($voucher, $uang)
@@ -18,7 +18,7 @@ function hitungvoucher($voucher, $uang)
 	switch ($voucher[0]) {
 		case '20000':
 			if ($uang < 20000) {
-				echo "Maaf minimal belanja harus Rp.20000";
+				echo "Maaf minimal belanja harus Rp.20000 ". $voucher[2];
 				die();
 			} else {
 				$hasil = $voucher[1] * $uang;
@@ -33,7 +33,7 @@ function hitungvoucher($voucher, $uang)
 			break;
 		case '50000':
 			if ($uang < 40000) {
-				echo "Maaf minimal belanja harus Rp.40000";
+				echo "Maaf minimal belanja harus Rp.40000 ".$voucher[2];
 				die();
 			} else {
 				$hasil = $voucher[1] * $uang;
@@ -50,7 +50,7 @@ function hitungvoucher($voucher, $uang)
 			# code...
 			break;
 	}
-	echo "Selamat voucher kamu dapat digunakan <br>";
+	echo "Selamat voucher ".$voucher[3]." kamu dapat digunakan <br>";
 	echo "Uang Yang Harus Dibayar : $output <br>";
 	echo "Diskon : $output <br>";
 	echo "Kembalian : $kembalian <br>";
@@ -58,4 +58,4 @@ function hitungvoucher($voucher, $uang)
 }
 
 
-hitungvoucher(dumbWaysAsik(), 20000);
+hitungvoucher(dumbWaysAsik(), 45000);
